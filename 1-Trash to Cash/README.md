@@ -180,6 +180,7 @@ Lihat file `LICENSE` untuk detail. Dataset dari Roboflow di bawah CC BY 4.0.
 
 -   Dataset: Klasifikasi Sampah Organik dan Anorganik oleh Skripsi Aji (CC BY 4.0).
 -   Link: https://universe.roboflow.com/skripsi-aji/klasifikasi-sampah-organik-dan-anorganik/dataset/35
+-   Notebook: https://colab.research.google.com/drive/1gK8RAOlisLqzVyOgGLH4jzO0M7eKBas_?usp=sharing
 
 ## Catatan
 
