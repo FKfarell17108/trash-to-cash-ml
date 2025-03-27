@@ -132,9 +132,9 @@ const tf = require('@tensorflow/tfjs-node');
 
 ## 🏁 Kesimpulan
 
-✅ Model ini tersedia dalam `.pkl` dan `.h5`.
-✅ Gunakan joblib (Python) untuk `.pkl` dan `@tensorflow/tfjs-node` (Node.js) untuk `.h5`.
-✅ Pastikan input data sudah sesuai dengan preprocessing yang dilakukan saat pelatihan.
+- ✅ Model ini tersedia dalam `.pkl` dan `.h5`.
+- ✅ Gunakan joblib (Python) untuk `.pkl` dan `@tensorflow/tfjs-node` (Node.js) untuk `.h5`.
+- ✅ Pastikan input data sudah sesuai dengan preprocessing yang dilakukan saat pelatihan.
 Dokumentasi ini dapat diperbarui jika ada perubahan pada model atau backend.
 
 ###  Link Notebook
