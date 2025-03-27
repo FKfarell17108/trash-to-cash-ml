@@ -8,6 +8,7 @@ Model ini dikembangkan untuk mengklasifikasikan data menjadi kategori organik da
 
 Berikut adalah struktur file dalam repository ini:
 
+```
 /
 ├── models/
 │   ├── model.pkl           # Model dalam format Joblib
@@ -17,6 +18,7 @@ Berikut adalah struktur file dalam repository ini:
 │   ├── Model_Klasifikasi.ipynb   # Notebook pelatihan model
 ├── requirements.txt        # Daftar dependency Python
 └── README.md               # Dokumentasi ini
+```
 
 ## ⚙️ Instalasi & Persiapan
 
