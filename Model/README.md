@@ -1,10 +1,10 @@
-#  Klasifikasi Organik & Anorganik
+#  🏷️ Klasifikasi Organik & Anorganik
 
-##  Tentang Proyek
+##  📌 Tentang Proyek
 
-Model ini dikembangkan untuk mengklasifikasikan data menjadi kategori organik dan anorganik berdasarkan fitur tabular. Model telah dilatih menggunakan Neural Network (Sequential Model) dan disimpan dalam format `.pkl` (Joblib) dan `.h5` (Keras) agar dapat digunakan oleh tim Backend dengan Express.js.
+Model ini dikembangkan untuk mengklasifikasikan data menjadi kategori organik dan anorganik berdasarkan fitur tabular. Model telah dilatih menggunakan Neural Network (Sequential Model) dan disimpan dalam format .pkl (Joblib) dan .h5 (Keras) agar dapat digunakan oleh tim Backend dengan Express.js.
 
-##  Struktur Direktori
+##  📂 Struktur Direktori
 
 Berikut adalah struktur file dalam repository ini:
 
@@ -50,11 +50,13 @@ Sebelum menjalankan model, pastikan telah menginstal dependensi yang diperlukan.
 
 3.  Pastikan model dan preprocessing tersedia di folder `models/`.
 
-##  Cara Menggunakan Model
+    Model dan preprocessing harus berada di dalam folder models/. Jika belum ada, pastikan untuk mendownload atau melakukan training          ulang.
+
+##  🚀 Cara Menggunakan Model
 
 Tim Backend dapat menggunakan model ini dalam Express.js dengan library `@tensorflow/tfjs-node` (untuk `.h5`) atau joblib (untuk `.pkl`).
 
-###  Menggunakan Model `.pkl` dengan Python
+###  🔹 Menggunakan Model `.pkl` dengan Python
 
 ```python
 import numpy as np
@@ -65,15 +67,15 @@ model = joblib.load('models/model.pkl')
 preprocessing = joblib.load('models/preprocessing.pkl')
 
 # Contoh input data (HARUS sesuai format pelatihan)
-sample_input = np.array([[0.5, 0.8, 0.3]])  # Gantilah dengan input asli
+sample_input = np.array([[0.5, 0.8, 0.3]])  # Sesuaikan dengan fitur yang digunakan
 
 # Prediksi
 prediction = model.predict(sample_input)
-label = (prediction > 0.5).astype(int)
+label = (prediction > 0.5).astype(int)  # Kategorikan sebagai 0 atau 1
 print("Predicted Label:", label)
 ```
 
-## Menggunakan Model `.h5` dalam Express.js
+### 🔹 Menggunakan Model `.h5` dalam Express.js
 
 Untuk Backend menggunakan Node.js, install library berikut:
 
@@ -96,7 +98,25 @@ const tf = require('@tensorflow/tfjs-node');
 })();
 ```
 
-## Troubleshooting
+## 📌 Contoh Input & Output
+
+### 🔹  Input (Data Tabular dalam JSON)
+
+```bash
+{
+    "features": [0.5, 0.8, 0.3]
+}
+```
+
+### 🔹  Output (Prediksi dalam JSON)
+
+```bash
+{
+    "prediction": 0  // 0 = Organik, 1 = Anorganik
+}
+```
+
+## ❗ Troubleshooting
 
 1.  Model tidak bisa di-load di Express.js?
 
@@ -110,11 +130,13 @@ const tf = require('@tensorflow/tfjs-node');
 
     ✔️ Pastikan preprocessing (standarisasi/min-max scaling) dilakukan sama seperti saat pelatihan.
 
-## Kesimpulan
+## 🏁 Kesimpulan
 
-* Model ini tersedia dalam `.pkl` dan `.h5`.
-* Gunakan joblib (Python) untuk `.pkl` dan `@tensorflow/tfjs-node` (Node.js) untuk `.h5`.
-* Pastikan input data sesuai preprocessing yang digunakan saat pelatihan.
-* Dokumentasi ini dapat diperbarui jika ada perubahan pada model atau backend.
+✅ Model ini tersedia dalam `.pkl` dan `.h5`.
+✅ Gunakan joblib (Python) untuk `.pkl` dan `@tensorflow/tfjs-node` (Node.js) untuk `.h5`.
+✅ Pastikan input data sudah sesuai dengan preprocessing yang dilakukan saat pelatihan.
+Dokumentasi ini dapat diperbarui jika ada perubahan pada model atau backend.
 
-Jangan lupa untuk menghubungi tim ML jika ada pertanyaan atau kendala!
+Jika ada pertanyaan atau kendala, jangan ragu untuk menghubungi tim ML! 🚀
+* farellkurniawan17108@gmail.com
+* farelpunn@gmail.com
