@@ -137,6 +137,10 @@ const tf = require('@tensorflow/tfjs-node');
 ✅ Pastikan input data sudah sesuai dengan preprocessing yang dilakukan saat pelatihan.
 Dokumentasi ini dapat diperbarui jika ada perubahan pada model atau backend.
 
+###  Link Notebook
+
+https://colab.research.google.com/drive/1gK8RAOlisLqzVyOgGLH4jzO0M7eKBas_?usp=sharing
+
 Jika ada pertanyaan atau kendala, jangan ragu untuk menghubungi tim ML! 🚀
 * farellkurniawan17108@gmail.com
 * farelpunn@gmail.com
