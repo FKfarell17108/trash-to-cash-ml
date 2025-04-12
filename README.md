@@ -22,9 +22,9 @@ Repo ini menyimpan model klasifikasi sampah dan API untuk integrasi ke Backend.
 
 ## 👥 Tim Pengembang
 
-- Machine Learning: @FKfarell17108
-- Backend: hnif4
-- Frontend: Zans09
+- Machine Learning: Farell Kurniawan dan Farel Puna Nugraha
+- Backend: Siti Nur Hanifah
+- Frontend: Muhammad Sofi Fauzan, Andini Eka Lisnawati, dan Aurell Ghania Ramadhani
 
 ---
 
