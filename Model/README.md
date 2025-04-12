@@ -2,7 +2,10 @@
 
 ##  📌 Tentang Proyek
 
-Model ini dikembangkan untuk mengklasifikasikan data menjadi kategori organik dan anorganik berdasarkan fitur tabular. Model telah dilatih menggunakan Neural Network (Sequential Model) dan disimpan dalam format .pkl (Joblib) dan .h5 (Keras) agar dapat digunakan oleh tim Backend dengan Express.js.
+Model ini dikembangkan untuk mengklasifikasikan data menjadi kategori **organik** dan **anorganik** berdasarkan fitur tabular.  
+Model telah dilatih menggunakan Neural Network (Sequential Model) dan disimpan dalam format **`.pkl`** menggunakan **Joblib**, agar dapat digunakan sebagai REST API menggunakan Flask.
+
+---
 
 ##  📂 Struktur Direktori
 
@@ -19,6 +22,7 @@ Berikut adalah struktur file dalam repository ini:
 ├── requirements.txt        # Daftar dependency Python
 └── README.md               # Dokumentasi ini
 ```
+---
 
 ## ⚙️ Instalasi & Persiapan
 
@@ -48,59 +52,36 @@ Sebelum menjalankan model, pastikan telah menginstal dependensi yang diperlukan.
     scikit-learn
     ```
 
-3.  Pastikan model dan preprocessing tersedia di folder `models/`.
+3.  Pastikan file model.pkl berada di folder `models/`.
 
-    Model dan preprocessing harus berada di dalam folder models/. Jika belum ada, pastikan untuk mendownload atau melakukan training          ulang.
+---
 
 ##  🚀 Cara Menggunakan Model
 
-Tim Backend dapat menggunakan model ini dalam Express.js dengan library `@tensorflow/tfjs-node` (untuk `.h5`) atau joblib (untuk `.pkl`).
+Saat ini model `.pkl` digunakan melalui Flask API yang berada di folder `API/`.
 
-###  🔹 Menggunakan Model `.pkl` dengan Python
+###  Namun jika ingin tes manual di Python:
 
 ```python
 import numpy as np
 import joblib
 
-# Load model dan preprocessing
-model = joblib.load('models/model.pkl')
-preprocessing = joblib.load('models/preprocessing.pkl')
+# Load model
+model = joblib.load('Model/model.pkl')
 
-# Contoh input data (HARUS sesuai format pelatihan)
-sample_input = np.array([[0.5, 0.8, 0.3]])  # Sesuaikan dengan fitur yang digunakan
-
-# Prediksi
+# Contoh input data (HARUS sesuai dengan pelatihan)
+sample_input = np.array([[0.5, 0.8, 0.3]])  # Jumlah fitur harus sesuai
 prediction = model.predict(sample_input)
-label = (prediction > 0.5).astype(int)  # Kategorikan sebagai 0 atau 1
-print("Predicted Label:", label)
+
+# Output
+print("Predicted Label:", prediction)
 ```
 
-### 🔹 Menggunakan Model `.h5` dalam Express.js
-
-Untuk Backend menggunakan Node.js, install library berikut:
-
-```bash
-npm install @tensorflow/tfjs-node
-```
-
-Kemudian, gunakan kode berikut di Express.js:
-
-```javascript
-const tf = require('@tensorflow/tfjs-node');
-
-(async () => {
-    const model = await tf.loadLayersModel('file://models/model.h5');
-
-    // Contoh input (HARUS sesuai format pelatihan)
-    const inputTensor = tf.tensor2d([[0.5, 0.8, 0.3]], [1, 3]);
-    const prediction = model.predict(inputTensor);
-    prediction.print();
-})();
-```
+---
 
 ## 📌 Contoh Input & Output
 
-### 🔹  Input (Data Tabular dalam JSON)
+### 🔹  Input (JSON via API atau manual):
 
 ```bash
 {
@@ -108,7 +89,7 @@ const tf = require('@tensorflow/tfjs-node');
 }
 ```
 
-### 🔹  Output (Prediksi dalam JSON)
+### 🔹  Output (API Response):
 
 ```bash
 {
@@ -116,31 +97,41 @@ const tf = require('@tensorflow/tfjs-node');
 }
 ```
 
+---
+
 ## ❗ Troubleshooting
 
-1.  Model tidak bisa di-load di Express.js?
+1.  ❌ Model tidak bisa digunakan?
+   
+    ✔️ Pastikan path dan nama file `model.pkl` sudah sesuai.
 
-    ✔️ Pastikan model dalam format `.h5` dan di-load dengan `@tensorflow/tfjs-node`.
+2.  ❌ Error input shape tidak sesuai?
 
-2.  Error input shape tidak sesuai?
+    ✔️ Pastikan jumlah fitur input sama dengan saat pelatihan (misal: 12288).
 
-    ✔️ Pastikan jumlah fitur input sama dengan jumlah fitur saat pelatihan.
+3.  ❌ Prediksi tidak akurat?
 
-3.  Prediksi tidak sesuai harapan?
+    ✔️ Pastikan preprocessing (normalisasi, scaling, dll) dilakukan jika memang digunakan saat pelatihan.
 
-    ✔️ Pastikan preprocessing (standarisasi/min-max scaling) dilakukan sama seperti saat pelatihan.
+---
 
 ## 🏁 Kesimpulan
 
-- ✅ Model ini tersedia dalam `.pkl` dan `.h5`.
-- ✅ Gunakan joblib (Python) untuk `.pkl` dan `@tensorflow/tfjs-node` (Node.js) untuk `.h5`.
-- ✅ Pastikan input data sudah sesuai dengan preprocessing yang dilakukan saat pelatihan.
-Dokumentasi ini dapat diperbarui jika ada perubahan pada model atau backend.
+- ✅ Model ini digunakan melalui Flask API `(API/model_api.py)`.
+- ✅ Format `.pkl` digunakan karena lebih mudah diintegrasikan via Python.
+- ✅ Tidak perlu gunakan `.h5` dan `tfjs-node` di Node.js karena sudah digantikan dengan REST API.
+- ✅ Preprocessing hanya diperlukan jika model dilatih dengan pipeline preprocessing.
 
-###  Link Notebook
+---
+
+##  Link Notebook
 
 https://colab.research.google.com/drive/1gK8RAOlisLqzVyOgGLH4jzO0M7eKBas_?usp=sharing
 
 Jika ada pertanyaan atau kendala, jangan ragu untuk menghubungi tim ML! 🚀
 * farellkurniawan17108@gmail.com
 * farelpunn@gmail.com
+
+---
+
+Dokumentasi ini dapat diperbarui jika ada perubahan pada model atau backend!
