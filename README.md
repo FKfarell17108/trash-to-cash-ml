@@ -25,9 +25,3 @@ Repo ini menyimpan model klasifikasi sampah dan API untuk integrasi ke Backend.
 - Machine Learning: Farell Kurniawan dan Farel Puna Nugraha
 - Backend: Siti Nur Hanifah
 - Frontend: Muhammad Sofi Fauzan, Andini Eka Lisnawati, dan Aurell Ghania Ramadhani
-
----
-
-## 📄 License
-
-[MIT License](LICENSE) – Silakan gunakan dan modifikasi sesuai kebutuhan
