@@ -5,10 +5,11 @@ import joblib
 import os
 from flask_cors import CORS
 
-app = Flask(__name__)
+
+app = Flask( __name__ )
 CORS(app)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-model_path = os.path.join(BASE_DIR, '..', 'Model', 'model.pkl')
+model_path = os.path.join(BASE_DIR, '..', 'model', 'model', 'model.pkl')
 model = joblib.load(model_path)
 
 def preprocess_image(file):
@@ -29,5 +30,4 @@ def predict_image():
     return jsonify({"prediction": label})
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 8080))
-    app.run(host="0.0.0.0", port=port, debug=False)
+    app.run(debug=True)
