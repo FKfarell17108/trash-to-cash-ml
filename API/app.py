@@ -31,3 +31,7 @@ def predict_image():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+# untuk Hugging Face Spaces agar tahu ini objek app
+# tambahkan di paling akhir
+app = app
